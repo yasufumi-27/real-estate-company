@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>買いたい｜株式会社みなと不動産</title>
+<meta name="description" content="マイホームをお探しの方へ。新築・中古住宅、マンション、土地の情報をPDF資料付きでご紹介します。">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="logo">
+      <a href="index.html"><span class="logo__mark">みなと不動産</span></a>
+      <span class="logo__sub">MINATO REAL ESTATE</span>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="globalNav">MENU</button>
+    <nav class="nav" id="globalNav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="rent.html">借りたい</a></li>
+        <li><a href="buy.html" aria-current="page">買いたい</a></li>
+        <li><a href="sell.html">売りたい</a></li>
+        <li><a href="land.html">事業用地</a></li>
+        <li><a href="company.html">会社概要</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero hero--page">
+    <div class="wrap">
+      <p class="hero__en">FOR SALE</p>
+      <h1>買いたい</h1>
+      <p>資金計画から住宅ローンのご相談まで。はじめてのマイホーム購入も安心してお任せください。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>売買物件一覧</h2>
+        <p>各物件の詳細資料はPDFでご確認いただけます。</p>
+      </div>
+
+      <div class="filters">
+        <input type="search" id="keyword" placeholder="キーワード検索（エリア・間取りなど）" style="min-width:280px">
+        <a class="btn btn--sm btn--ghost" href="#upload">物件情報をアップロード</a>
+      </div>
+
+      <div class="plist" id="propertyList"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="upload">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>物件情報のアップロード</h2>
+        <p>PDF形式の物件資料をご自身で登録できます。</p>
+      </div>
+
+      <div class="notice">
+        <b>デモ版の仕様：</b>アップロードしたPDFは<b>お使いのブラウザ内（IndexedDB）にのみ保存</b>され、外部には送信されません。他の端末・他の閲覧者には表示されず、ブラウザのデータを削除すると消えます。実運用ではサーバー保存＋管理者ログインの構成に置き換えます。
+      </div>
+
+      <form class="uploader" id="uploadForm" novalidate>
+        <h3>売買物件を登録する</h3>
+        <p class="uploader__note">物件名とPDFは必須です。その他の項目は任意です（10MBまで）。</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-title">物件名 <span style="color:#a13b3b">必須</span></label>
+            <input type="text" id="f-title" name="title" placeholder="みなと町 中古戸建">
+          </div>
+          <div class="field">
+            <label for="f-price">価格</label>
+            <input type="text" id="f-price" name="price" placeholder="3,480万円">
+          </div>
+          <div class="field">
+            <label for="f-area">所在地</label>
+            <input type="text" id="f-area" name="area" placeholder="横浜市中区みなと町">
+          </div>
+          <div class="field">
+            <label for="f-access">交通</label>
+            <input type="text" id="f-access" name="access" placeholder="みなと駅 徒歩9分">
+          </div>
+          <div class="field">
+            <label for="f-layout">間取り</label>
+            <input type="text" id="f-layout" name="layout" placeholder="4LDK">
+          </div>
+          <div class="field">
+            <label for="f-size">土地／建物面積</label>
+            <input type="text" id="f-size" name="size" placeholder="土地120.4㎡／建物98.6㎡">
+          </div>
+          <div class="field field--full">
+            <label for="f-note">備考</label>
+            <textarea id="f-note" name="note" rows="2" placeholder="駐車2台／築15年／リフォーム済"></textarea>
+          </div>
+
+          <label class="dropzone" for="f-file">
+            <span data-drop-label>PDFをドラッグ＆ドロップ、または<b>クリックして選択</b></span>
+            <input type="file" id="f-file" name="file" accept="application/pdf,.pdf" hidden>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn" type="submit">この内容で登録する</button>
+            <span class="msg" data-msg></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>ご購入までの流れ</h2>
+      </div>
+      <ol class="steps">
+        <li><b>資金計画のご相談</b>ご年収や自己資金をもとに、無理のない予算をご提案します。</li>
+        <li><b>物件のご紹介・見学</b>気になる物件を実際にご覧いただきます。</li>
+        <li><b>購入のお申し込み</b>価格や引き渡し条件の交渉を代行します。</li>
+        <li><b>住宅ローン事前審査</b>提携金融機関をご紹介します。</li>
+        <li><b>ご契約・お引き渡し</b>重要事項説明のうえ、決済・登記を行います。</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>希望条件から探しませんか</h2>
+    <p>未公開物件のご紹介も可能です。まずはご希望をお聞かせください。</p>
+    <a class="btn" href="company.html#contact">お問い合わせ</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">みなと不動産</div>
+        <p style="margin:0">〒231-0000 神奈川県横浜市中区みなと町1-2-3<br>TEL 045-000-0000（9:30〜18:30／水曜定休）</p>
+      </div>
+      <ul>
+        <li><a href="rent.html">借りたい</a></li>
+        <li><a href="buy.html">買いたい</a></li>
+        <li><a href="sell.html">売りたい</a></li>
+      </ul>
+      <ul>
+        <li><a href="land.html">事業用地</a></li>
+        <li><a href="company.html">会社概要</a></li>
+        <li><a href="company.html#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <p class="footer__copy">
+      &copy; <span data-year>2026</span> MINATO REAL ESTATE Co., Ltd. ／ 本サイトは架空の会社によるデモサイトです。掲載内容は実在しません。
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/properties.js"></script>
+<script>
+PropertyBoard.init({
+  category: 'buy',
+  listSelector: '#propertyList',
+  formSelector: '#uploadForm',
+  keywordSelector: '#keyword',
+  samples: [
+    {
+      sample: true, title: 'みなと町 中古戸建', price: '3,480万円', area: '横浜市中区みなと町4-8',
+      layout: '4LDK', size: '土地120.40㎡／建物98.60㎡', access: 'みなと駅 徒歩9分',
+      note: '築15年／駐車2台／2025年内外装リフォーム済', pdfPath: 'assets/pdf/buy-sample-1.pdf',
+      fileLabel: 'minato-house.pdf'
+    },
+    {
+      sample: true, title: 'パークマンション山手 8階', price: '4,180万円', area: '横浜市中区山手町3-1',
+      layout: '3LDK', size: '専有71.35㎡', access: '山手駅 徒歩6分',
+      note: '南東角部屋／眺望良好／管理費12,000円', pdfPath: 'assets/pdf/buy-sample-2.pdf',
+      fileLabel: 'park-mansion-yamate.pdf'
+    },
+    {
+      sample: true, title: '本町 売地（建築条件なし）', price: '2,650万円', area: '横浜市中区本町6-14',
+      layout: '—', size: '土地145.20㎡', access: '本町駅 徒歩12分',
+      note: '第一種住居地域／建ぺい率60%・容積率200%／整形地', pdfPath: 'assets/pdf/buy-sample-3.pdf',
+      fileLabel: 'honcho-land.pdf'
+    }
+  ]
+});
+</script>
+</body>
+</html>
