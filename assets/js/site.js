@@ -1,10 +1,10 @@
-/* 共通処理：モバイルナビ / フッターの年表示 */
+/* 共通処理：スマートフォン用メニューの開閉 / フッターの年表示 */
 (function () {
   var toggle = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.nav');
-  if (toggle && nav) {
+  var list = document.querySelector('.gnav ul');
+  if (toggle && list) {
     toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
+      var open = list.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(open));
     });
   }

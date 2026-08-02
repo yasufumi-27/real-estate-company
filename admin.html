@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>物件情報の更新（担当者用）｜株式会社みなと不動産</title>
+<meta name="description" content="担当者用の物件情報更新ページです。">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+</head>
+<body>
+<div class="site">
+
+  <header class="banner">
+    <p class="banner__title">株式会社みなと不動産<small>横浜・中区の不動産売買／賃貸</small></p>
+  </header>
+
+  <button class="nav-toggle" type="button" aria-expanded="false">≡ メニュー</button>
+  <nav class="gnav">
+    <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="rent.html">借りたい</a></li>
+        <li><a href="buy.html">買いたい</a></li>
+        <li><a href="sell.html">売りたい</a></li>
+        <li><a href="land.html">事業用地</a></li>
+        <li><a href="company.html">会社概要</a></li>
+        <li class="gnav__admin"><a href="admin.html" aria-current="page">担当者用｜物件情報の更新</a></li>
+    </ul>
+  </nav>
+
+  <main class="admin">
+    <h1>物件情報の更新ページ（担当者用）</h1>
+    <p>このページで、ホームページに載せる物件の追加・書きかえ・削除ができます。むずかしい操作はありません。</p>
+
+    <div class="guide">
+      <h2>はじめての方へ：使い方は3つだけです</h2>
+      <ol>
+        <li><b>種類を選ぶ</b>　…　「借りたい（賃貸）」か「買いたい（売買）」のどちらかを押します。</li>
+        <li><b>物件を直す・増やす</b>　…　直したい物件の「内容を書きかえる」、または「新しい物件を追加する」を押します。</li>
+        <li><b>保存する</b>　…　いちばん下の緑のボタン「この内容で保存する」を押せば完了です。</li>
+      </ol>
+      <p class="guide__foot">
+        まちがえても大丈夫です。保存する前ならいつでも「やめる」で元にもどせます。<br>
+        くわしい手順は <a href="assets/pdf/manual.pdf" target="_blank" rel="noopener"><b>操作マニュアル（PDF）</b></a> をご覧ください（印刷してお使いいただけます）。
+      </p>
+    </div>
+
+    <div class="notice" style="font-size:13.5px">
+      <b>大切なお知らせ：</b>ここで保存した内容は、<b>このパソコンのこのブラウザの中だけ</b>に保存されます。
+      ほかのパソコンやスマートフォンからは見えません。お客様に見えるホームページに反映するには、
+      いちばん下の <b>「物件データを書き出す」</b> でファイルを保存し、そのファイルをホームページの担当者へメールでお送りください。
+    </div>
+
+    <div id="flash" class="flash" hidden></div>
+
+    <h2>1. どちらのページの物件ですか？</h2>
+    <div class="tabs">
+      <button type="button" data-cat="rent" aria-pressed="true">借りたい（賃貸）<small>アパート・マンションなどの賃貸物件</small></button>
+      <button type="button" data-cat="buy" aria-pressed="false">買いたい（売買）<small>戸建・マンション・土地などの売買物件</small></button>
+    </div>
+
+    <h2>2. 物件を直す・増やす</h2>
+    <p id="listTitle" style="font-weight:700">借りたい（賃貸） のページに載っている物件</p>
+    <p class="txt-note" style="font-size:14px">いま <b id="count">0</b> 件の物件が載っています。上にあるものほど、ホームページの先頭に表示されます。</p>
+
+    <p style="margin:14px 0 20px">
+      <button class="bigbtn" type="button" id="addBtn">＋ 新しい物件を追加する</button>
+      <a class="bigbtn bigbtn--sub" id="viewLink" href="rent.html" target="_blank" rel="noopener">ホームページでの見え方を確認する</a>
+    </p>
+
+    <!-- ===== 入力フォーム ===== -->
+    <section class="editor" id="editor" hidden>
+      <p class="editor__title" id="editorTitle">新しい物件を追加します</p>
+      <p class="editor__lead" id="editorLead">物件名だけ必ず入れてください。</p>
+
+      <div class="errorbox" id="editorError" hidden></div>
+
+      <form id="editorForm" novalidate>
+        <div class="fields">
+          <div class="f">
+            <label for="i-title">物件名<span class="req">必ず入力</span></label>
+            <span class="hint">例：みなとハイツ 302号室</span>
+            <input type="text" id="i-title" name="title" autocomplete="off">
+          </div>
+
+          <div class="f">
+            <label for="i-price">賃料・価格<span class="opt">なくてもよい</span></label>
+            <span class="hint">例：8.5万円　／　3,480万円　（「円」まで入れてください）</span>
+            <input type="text" id="i-price" name="price" autocomplete="off">
+          </div>
+
+          <div class="f--half">
+            <div class="f">
+              <label for="i-area">所在地<span class="opt">なくてもよい</span></label>
+              <span class="hint">例：横浜市中区みなと町2-4</span>
+              <input type="text" id="i-area" name="area" autocomplete="off">
+            </div>
+            <div class="f">
+              <label for="i-access">交通<span class="opt">なくてもよい</span></label>
+              <span class="hint">例：みなと駅 徒歩7分</span>
+              <input type="text" id="i-access" name="access" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="f--half">
+            <div class="f">
+              <label for="i-layout">間取り<span class="opt">なくてもよい</span></label>
+              <span class="hint">例：1LDK　／　3LDK</span>
+              <input type="text" id="i-layout" name="layout" autocomplete="off">
+            </div>
+            <div class="f">
+              <label for="i-size">面積<span class="opt">なくてもよい</span></label>
+              <span class="hint">例：42.50㎡　／　土地120㎡・建物98㎡</span>
+              <input type="text" id="i-size" name="size" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="f">
+            <label for="i-note">備考（そのほか伝えたいこと）<span class="opt">なくてもよい</span></label>
+            <span class="hint">例：ペット相談可／駐車場1台込み／即入居可</span>
+            <textarea id="i-note" name="note" rows="2"></textarea>
+          </div>
+
+          <div class="f">
+            <label>物件資料（PDF）<span class="opt">なくてもよい</span></label>
+            <span class="hint">パソコンに保存してあるPDFを選ぶと、お客様が「物件資料（PDF）を見る」から見られるようになります。</span>
+            <div class="filepick" id="filepick">
+              <p class="filepick__now" id="fileNow">PDFはまだ登録されていません。</p>
+              <p class="filepick__pick">ここをクリックしてPDFを選ぶ</p>
+              <p class="filepick__hint" id="fileHint">（PDFのファイルをこの枠の中にドラッグしても選べます）</p>
+              <input type="file" id="pdfFile" accept="application/pdf,.pdf" hidden>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor__actions">
+          <button class="bigbtn" type="submit">この内容で保存する</button>
+          <button class="bigbtn bigbtn--gray" type="button" id="cancelBtn">やめる（保存しない）</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="rows" id="rows"></div>
+
+    <h2>3. ホームページに反映する（書き出し）</h2>
+    <div class="panel">
+      <h3>物件データを書き出して、担当者へ送る</h3>
+      <p style="margin-bottom:0">
+        下のボタンを押すと、いま登録されている物件がすべて入った<b>1つのファイル</b>がパソコンに保存されます（「ダウンロード」フォルダに入ります）。
+        そのファイルをメールに添付して、ホームページの担当者へお送りください。担当者がホームページに反映します。
+      </p>
+      <div class="panel__actions">
+        <button class="bigbtn" type="button" id="exportBtn">物件データを書き出す（ファイルに保存）</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>書き出したファイルを読みこむ</h3>
+      <p style="margin-bottom:0">
+        パソコンを買いかえたときや、担当者から送られてきたファイルを取りこむときに使います。
+        <b>いま登録されている物件はすべて消えて、ファイルの内容に入れかわります</b>のでご注意ください。
+      </p>
+      <div class="panel__actions">
+        <button class="bigbtn bigbtn--gray" type="button" id="importBtn">ファイルを読みこむ</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </div>
+    </div>
+
+    <h2>困ったときは</h2>
+    <div class="faq">
+      <details>
+        <summary>まちがえて保存してしまいました。もとに戻せますか？</summary>
+        <p>もう一度その物件の「内容を書きかえる」を押して、正しい内容に直して保存してください。消してしまった物件は元にもどせませんので、「この物件を消す」を押すときは確認の画面をよくお読みください。</p>
+      </details>
+      <details>
+        <summary>登録したはずの物件が、別のパソコンで見えません。</summary>
+        <p>この画面で登録した内容は、いまお使いのパソコン（ブラウザ）の中だけに保存されています。別のパソコンでも同じ内容にしたいときは、「物件データを書き出す」でファイルを保存し、そのパソコンで「ファイルを読みこむ」を行ってください。</p>
+      </details>
+      <details>
+        <summary>PDFが選べません。</summary>
+        <p>ファイル名のいちばん最後が「.pdf」になっているか確認してください。写真（.jpg）やワード（.docx）は登録できません。PDFの作り方が分からないときは、操作マニュアル（PDF）の最後のページをご覧ください。</p>
+      </details>
+      <details>
+        <summary>物件の並び順を変えたいです。</summary>
+        <p>各物件の「↑ 上へ」「↓ 下へ」ボタンで並び順を変えられます。上にあるものほど、お客様のページで先に表示されます。</p>
+      </details>
+      <details>
+        <summary>操作方法をもう一度確認したいです。</summary>
+        <p><a href="assets/pdf/manual.pdf" target="_blank" rel="noopener">操作マニュアル（PDF）</a>をご覧ください。印刷して手元に置いておくこともできます。</p>
+      </details>
+    </div>
+  </main>
+
+  <footer class="site__footer">
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="rent.html">借りたい</a>
+      <a href="buy.html">買いたい</a>
+      <a href="sell.html">売りたい</a>
+      <a href="land.html">事業用地</a>
+      <a href="company.html">会社概要</a>
+    </nav>
+    <p class="copy">&copy; <span data-year>2026</span> 株式会社みなと不動産（デモサイト）</p>
+  </footer>
+
+</div>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/properties.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

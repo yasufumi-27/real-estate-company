@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/* ============================================================
+   担当者用「物件情報の更新ページ」専用スタイル
+   パソコンに不慣れな方でも迷わないよう、文字・ボタンを大きくしています。
+   ============================================================ */
+
+.admin { font-size: 16px; line-height: 1.9; padding: 26px 30px 50px; }
+@media (max-width: 780px) { .admin { padding: 20px 16px 40px; } }
+
+.admin h1 {
+  font-size: 24px; border-bottom: 3px solid var(--green); padding-bottom: 12px; margin: 0 0 8px;
+}
+.admin h2 {
+  font-size: 19px; margin: 34px 0 14px; padding: 6px 0 8px 12px;
+  border-left: 6px solid var(--green); border-bottom: 1px solid var(--line);
+}
+.admin h3 { font-size: 16px; margin: 0 0 8px; }
+.admin p { font-size: 15.5px; }
+
+/* ---- 使い方ガイド ---- */
+.guide { background: #f2f7f4; border: 2px solid #bcd7c9; padding: 18px 22px; margin: 18px 0 8px; }
+.guide h2 { margin: 0 0 10px; border: 0; padding: 0; font-size: 18px; color: var(--green); }
+.guide ol { margin: 0; padding-left: 1.3em; }
+.guide li { margin-bottom: 6px; }
+.guide .guide__foot { margin: 12px 0 0; font-size: 14px; color: #45604f; }
+
+.steps-flow { display: flex; gap: 10px; margin: 16px 0 6px; flex-wrap: wrap; }
+.steps-flow div {
+  flex: 1 1 200px; background: #fff; border: 2px solid var(--line); padding: 12px 14px; font-size: 14.5px;
+}
+.steps-flow b { display: block; color: var(--green); font-size: 15px; margin-bottom: 2px; }
+
+/* ---- 大きなボタン ---- */
+.bigbtn {
+  display: inline-block; padding: 15px 28px; font-size: 17px; font-weight: 700; font-family: inherit;
+  background: var(--green); color: #fff; border: 2px solid var(--green); border-radius: 4px;
+  cursor: pointer; text-decoration: none; line-height: 1.5;
+}
+.bigbtn:hover { background: var(--green-light); color: #fff; text-decoration: none; }
+.bigbtn--sub { background: #fff; color: var(--green); }
+.bigbtn--sub:hover { background: #eaf2ee; color: var(--green); }
+.bigbtn--gray { background: #fff; color: #444; border-color: #b9b4aa; }
+.bigbtn--gray:hover { background: #f2f0ec; color: #444; }
+.bigbtn--danger { background: #fff; color: #9a2b2b; border-color: #d9b0b0; }
+.bigbtn--danger:hover { background: #fbf0f0; color: #9a2b2b; }
+.bigbtn[disabled] { opacity: .5; cursor: not-allowed; }
+
+/* ---- 種類の切り替え ---- */
+.tabs { display: flex; gap: 12px; margin: 6px 0 20px; flex-wrap: wrap; }
+.tabs button {
+  flex: 1 1 220px; padding: 16px; font-size: 18px; font-weight: 700; font-family: inherit;
+  background: #fff; color: #555; border: 3px solid var(--line); border-radius: 4px; cursor: pointer;
+}
+.tabs button small { display: block; font-size: 13px; font-weight: 400; color: #777; }
+.tabs button[aria-pressed="true"] { border-color: var(--green); background: #eef4f0; color: var(--green); }
+.tabs button[aria-pressed="true"] small { color: var(--green); }
+
+/* ---- 物件の一覧 ---- */
+.rows { display: grid; gap: 14px; }
+.row {
+  border: 2px solid var(--line); background: #fff; padding: 16px 18px;
+  display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start;
+}
+@media (max-width: 700px) { .row { grid-template-columns: 1fr; } }
+.row--editing { border-color: var(--green); background: #f5faf7; }
+.row__no {
+  display: inline-block; background: #555; color: #fff; font-size: 13px; padding: 1px 9px; margin-bottom: 6px;
+}
+.row h3 { font-size: 18px; margin: 0 0 4px; }
+.row__price { color: var(--price); font-weight: 700; font-size: 17px; margin: 0 0 4px; }
+.row__meta { font-size: 14px; color: #555; margin: 0; }
+.row__pdf { font-size: 13.5px; color: #666; margin: 6px 0 0; }
+.row__pdf b { color: var(--green); }
+.row__actions { display: grid; gap: 8px; min-width: 210px; }
+.row__actions button { width: 100%; }
+.row__sort { display: flex; gap: 8px; }
+.row__sort button { flex: 1; padding: 8px; font-size: 14px; }
+
+/* ---- 入力フォーム ---- */
+.editor { border: 3px solid var(--green); background: #fff; padding: 22px 24px 26px; margin: 22px 0; }
+.editor[hidden] { display: none; }
+.editor__title { font-size: 20px; font-weight: 700; color: var(--green); margin: 0 0 4px; }
+.editor__lead { font-size: 14.5px; color: #555; margin: 0 0 18px; }
+
+.fields { display: grid; gap: 18px; }
+.f { display: grid; gap: 6px; }
+.f label { font-size: 16px; font-weight: 700; }
+.f .req { color: #fff; background: #a03131; font-size: 12px; padding: 1px 7px; margin-left: 6px; vertical-align: 2px; }
+.f .opt { color: #555; background: #eceae4; font-size: 12px; padding: 1px 7px; margin-left: 6px; vertical-align: 2px; }
+.f .hint { font-size: 13.5px; color: #666; }
+.f input[type="text"], .f textarea {
+  font: inherit; font-size: 17px; padding: 12px 14px; border: 2px solid #b9b4aa; border-radius: 3px;
+  width: 100%; background: #fffef9;
+}
+.f input[type="text"]:focus, .f textarea:focus { border-color: var(--green); outline: 3px solid #cfe3d8; }
+.f--half { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 700px) { .f--half { grid-template-columns: 1fr; } }
+
+.filepick { border: 3px dashed #b9b4aa; background: #fbfaf6; padding: 20px; text-align: center; cursor: pointer; }
+.filepick:hover, .filepick.is-drag { border-color: var(--green); background: #eef4f0; }
+.filepick__now { font-size: 14.5px; color: #444; margin: 0 0 10px; }
+.filepick__now b { color: var(--green); }
+.filepick__pick { font-size: 17px; font-weight: 700; color: var(--green); margin: 0; }
+.filepick__hint { font-size: 13.5px; color: #666; margin: 6px 0 0; }
+
+.editor__actions { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; align-items: center; }
+
+/* ---- メッセージ ---- */
+.flash { font-size: 17px; font-weight: 700; padding: 16px 20px; margin: 18px 0; border: 2px solid; }
+.flash[hidden] { display: none; }
+.flash--ok { background: #eef7f1; border-color: #6aa886; color: #1d5c3c; }
+.flash--ng { background: #fdf0f0; border-color: #d09a9a; color: #8f2626; }
+.flash a { margin-left: 10px; }
+.flash .flash__sub { display: block; font-size: 14.5px; font-weight: 400; margin-top: 6px; }
+
+.errorbox { background: #fdf0f0; border: 2px solid #d09a9a; color: #8f2626; padding: 14px 18px; margin: 0 0 16px; font-size: 15.5px; }
+.errorbox[hidden] { display: none; }
+.errorbox b { display: block; font-size: 16px; }
+
+/* ---- 書き出し／読み込み ---- */
+.panel { border: 2px solid var(--line); background: #fbfaf7; padding: 20px 22px; margin-bottom: 16px; }
+.panel h3 { font-size: 17px; }
+.panel__actions { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); padding: 12px 4px; }
+.faq summary { font-size: 16px; font-weight: 700; cursor: pointer; }
+.faq p { margin: 10px 0 4px; font-size: 15px; }
