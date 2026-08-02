@@ -193,7 +193,8 @@ p { margin: 0 0 1em; }
   border-top: 1px solid var(--line-soft); background: #faf9f6; padding: 9px 16px;
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
 }
-.pcard__file { font-size: 11.5px; color: var(--ink-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pcard__file { font-size: 11.5px; color: var(--ink-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.pcard__foot .btn { white-space: nowrap; flex: none; }
 .empty { border: 1px dashed var(--line); padding: 30px; text-align: center; color: var(--ink-mute); font-size: 13px; }
 
 /* ===== Footer ===== */
