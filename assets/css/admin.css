@@ -5,8 +5,11 @@
    パソコンに不慣れな方でも迷わないよう、文字・ボタンを大きくしています。
    ============================================================ */
 
-.admin { font-size: 16px; line-height: 1.9; padding: 26px 30px 50px; }
-@media (max-width: 780px) { .admin { padding: 20px 16px 40px; } }
+.admin {
+  font-size: 16px; line-height: 1.9; padding: 36px 60px 56px;
+  max-width: var(--maxw); margin: 0 auto; background: var(--paper); border-inline: 1px solid var(--line);
+}
+@media (max-width: 860px) { .admin { padding: 24px 18px 40px; border-inline: 0; } }
 
 .admin h1 {
   font-size: 24px; border-bottom: 3px solid var(--green); padding-bottom: 12px; margin: 0 0 8px;

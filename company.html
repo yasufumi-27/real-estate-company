@@ -9,46 +9,34 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
 </head>
 <body>
-<div class="site">
 
-  <header class="banner">
-    <p class="banner__title">株式会社みなと不動産<small>横浜・中区の不動産売買／賃貸</small></p>
-  </header>
+<header class="site__head">
+  <div class="head__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__name">みなと不動産</span>
+      <span class="brand__desc">MINATO REAL ESTATE｜横浜市中区</span>
+    </a>
+    <div class="head__info">
+      <p class="head__tel"><span>お問い合わせ</span>045-000-0000</p>
+      <p class="head__hours">平日 9:30〜18:30／土曜 9:30〜17:00（水・日・祝 定休）</p>
+      <p class="head__hours"><a class="head__admin" href="admin.html">担当者用｜物件情報の更新</a></p>
+    </div>
+  </div>
+</header>
 
-  <button class="nav-toggle" type="button" aria-expanded="false">≡ メニュー</button>
-  <nav class="gnav">
-    <ul>
-        <li><a href="index.html">ホーム</a></li>
+<button class="nav-toggle" type="button" aria-expanded="false">≡ メニュー</button>
+<nav class="gnav">
+  <ul>
+      <li><a href="index.html">ホーム</a></li>
         <li><a href="rent.html">借りたい</a></li>
         <li><a href="buy.html">買いたい</a></li>
         <li><a href="sell.html">売りたい</a></li>
         <li><a href="land.html">事業用地</a></li>
         <li><a href="company.html" aria-current="page">会社概要</a></li>
-        <li class="gnav__admin"><a href="admin.html">担当者用｜物件情報の更新</a></li>
-    </ul>
-  </nav>
+  </ul>
+</nav>
 
-  <div class="layout">
-    <aside class="sidebar">
-      <p class="sidebar__name">株式会社<br>みなと不動産</p>
-
-      <h2>営業時間</h2>
-      <p class="sidebar__hours">平日 9:30〜18:30<br>土曜 9:30〜17:00</p>
-      <p class="txt-note" style="padding-left:6px">定休日：水曜・日曜・祝日</p>
-
-      <h2>お問い合わせ</h2>
-      <p class="sidebar__tel">株式会社みなと不動産<br>TEL 045-000-0000<br>FAX 045-000-0001</p>
-      <p style="margin:0">office mail：<br><a href="mailto:info@example.com">info@example.com</a></p>
-      <p style="margin:14px 0 0"><a href="company.html#contact">お問合わせはこちらから</a></p>
-
-      <h2>担当者の方へ</h2>
-      <p style="margin:0 0 8px"><a class="btn btn--sm" href="admin.html">物件情報を更新する</a></p>
-      <p class="txt-note" style="margin:0"><a href="assets/pdf/manual.pdf" target="_blank" rel="noopener">操作マニュアル（PDF）</a></p>
-
-      <p class="sidebar__note">本サイトはデモサイトです。掲載している会社・物件・連絡先はすべて架空のものです。</p>
-    </aside>
-
-    <main class="main">
+<main class="main">
       <h1>会社概要</h1>
       <p class="lead">地域の暮らしとともに歩む不動産会社でありたいと考えています。</p>
       <p>当社は1998年の創業以来、みなと町を中心とした地域で、住まいの賃貸・売買・売却のお手伝いをしてまいりました。不動産の取引は、多くの方にとって一生に数えるほどしかない大きな決断です。だからこそ、急かさず、分からないことをそのままにせず、ご納得いただいたうえで進めることを何より大切にしております。</p>
@@ -81,19 +69,6 @@
         </tbody>
       </table>
 
-      <h2 id="contact">お問い合わせ</h2>
-      <div class="box">
-        <h3>お電話でのご相談</h3>
-        <p style="font-size:20px;font-weight:700;margin:4px 0">045-000-0000</p>
-        <p style="margin-bottom:0">受付時間　平日 9:30〜18:30／土曜 9:30〜17:00（水曜・日曜・祝日は定休）</p>
-      </div>
-      <div class="box">
-        <h3>メールでのご相談</h3>
-        <p style="font-size:16px;margin:4px 0"><a href="mailto:info@example.com">info@example.com</a></p>
-        <p style="margin-bottom:0">2営業日以内にご返信いたします。物件名をご記入いただけますとスムーズです。</p>
-      </div>
-      <p class="txt-note">※ 本ページはデモサイトのため、記載の電話番号・メールアドレスは実在しません。</p>
-
       <h2>アクセス</h2>
       <table class="table">
         <tbody>
@@ -101,23 +76,52 @@
           <tr><th>お車でお越しの場合</th><td>店舗前に来客用駐車場を2台分ご用意しております。</td></tr>
         </tbody>
       </table>
-    </main>
+
+      <h2 id="contact">お問い合わせ</h2>
+      <div class="contact" style="margin-top:0">
+        <div>
+          <h3>お電話でのご相談</h3>
+          <p class="tel">045-000-0000</p>
+          <p class="txt-note">平日 9:30〜18:30／土曜 9:30〜17:00（水曜・日曜・祝日は定休）</p>
+        </div>
+        <div>
+          <h3>メールでのご相談</h3>
+          <p style="font-size:15px"><a href="mailto:info@example.com">info@example.com</a></p>
+          <p class="txt-note">2営業日以内にご返信いたします。物件名をご記入いただけますとスムーズです。</p>
+        </div>
+      </div>
+</main>
+
+<footer class="site__footer">
+  <div class="footer__inner">
+    <div>
+      <p class="footer__brand">みなと不動産</p>
+      <p>〒231-0000 神奈川県横浜市中区みなと町1-2-3 みなとビル1F</p>
+      <p>TEL 045-000-0000／FAX 045-000-0001</p>
+      <p>平日 9:30〜18:30／土曜 9:30〜17:00（水・日・祝 定休）</p>
+    </div>
+    <div>
+      <p class="footer__head">ページ</p>
+      <ul class="footer__nav">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="rent.html">借りたい</a></li>
+        <li><a href="buy.html">買いたい</a></li>
+        <li><a href="sell.html">売りたい</a></li>
+        <li><a href="land.html">事業用地</a></li>
+        <li><a href="company.html">会社概要</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__head">担当者の方へ</p>
+      <ul class="footer__nav">
+        <li><a href="admin.html">物件情報の更新ページ</a></li>
+        <li><a href="assets/pdf/manual.pdf" target="_blank" rel="noopener">操作マニュアル（PDF）</a></li>
+      </ul>
+    </div>
   </div>
+  <p class="footer__copy">&copy; <span data-year>2026</span> 株式会社みなと不動産（デモサイト）　／　掲載している会社・物件・連絡先はすべて架空のものです。</p>
+</footer>
 
-  <footer class="site__footer">
-    <nav>
-      <a href="index.html">ホーム</a>
-      <a href="rent.html">借りたい</a>
-      <a href="buy.html">買いたい</a>
-      <a href="sell.html">売りたい</a>
-      <a href="land.html">事業用地</a>
-      <a href="company.html">会社概要</a>
-      <a href="admin.html">物件情報の更新</a>
-    </nav>
-    <p class="copy">&copy; <span data-year>2026</span> 株式会社みなと不動産（デモサイト）</p>
-  </footer>
-
-</div>
 <script src="assets/js/site.js"></script>
 </body>
 </html>
